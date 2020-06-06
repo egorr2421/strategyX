@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><%= title %></title>
+    <link rel="icon" type="image/png" href="barbute.png"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <a class="navbar-brand" href="#"><img src="barbute.svg" width="30"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Главноя</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link " href="/login">Выход</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-3 " style="    padding-right:0;
+    padding-left:0;">
+            <div class="around" style="float:right;
+						border-left-color: #E1E2E3;
+						border-top-color: #E1E2E3;"></div>
+        </div>
+        <div class="col-6 main">
+
+            <div class="logo">
+            </div>
+        </div>
+        <div class="col-3" style="
+        padding-right:0;
+    padding-left:0;">
+            <div class="around" style="float:left;
+
+            border-bottom-color: #E1E2E3;
+            border-right-color: #E1E2E3;"></div>
+        </div>
+    </div>
+</div>
+<div class="container ">
+
+    <div class="row">
+        <div class="col-12 main-table" >
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                </tr>
+                </thead>
+                <tbody class="main_table_body">
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/jquery.redirect.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="js/scriptMain.js"></script>
+</body>
+</html>

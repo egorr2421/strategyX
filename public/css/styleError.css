@@ -1,0 +1,28 @@
+body{
+	background-color: #F1F1F3;
+}
+.error{
+	margin-top: 50px;
+}
+.logo{
+	background-image: url(image/cancel.svg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.code{
+	text-align: center;
+	font-size: 200px;
+	color: #E2574C;
+}
+.main_title{
+	margin-top: 20px;
+	text-align: center;
+	color:#E2574C; 
+	font-size: 50px;
+}
+.sub_title{
+	text-align: center;
+	color:#E2574C; 
+	font-size: 25px;
+}

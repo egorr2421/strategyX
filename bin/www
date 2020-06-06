@@ -1,0 +1,159 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug')('IQLab:server');
+var http = require('http');
+var socket = require('socket.io');
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+var io = socket(server);
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+    var port = parseInt(val, 10);
+
+    if (isNaN(port)) {
+        // named pipe
+        return val;
+    }
+
+    if (port >= 0) {
+        // port number
+        return port;
+    }
+
+    return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+    if (error.syscall !== 'listen') {
+        throw error;
+    }
+
+    var bind = typeof port === 'string'
+        ? 'Pipe ' + port
+        : 'Port ' + port;
+
+    // handle specific listen errors with friendly messages
+    switch (error.code) {
+        case 'EACCES':
+            console.error(bind + ' requires elevated privileges');
+            process.exit(1);
+            break;
+        case 'EADDRINUSE':
+            console.error(bind + ' is already in use');
+            process.exit(1);
+            break;
+        default:
+            throw error;
+    }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+    var addr = server.address();
+    var bind = typeof addr === 'string'
+        ? 'pipe ' + addr
+        : 'port ' + addr.port;
+    debug('Listening on ' + bind);
+}
+
+
+//web socket
+const UserRepository = require('../repository/UsersRepository');
+var battleLogs = require('../routes/data/battleLogs');
+
+io.on('connection', function (socket) {
+    socket.send("hi");
+
+    socket.on('choose', function (data) {
+        UserRepository.findBySessionId(data.req).then((value) => {
+            if (value != null) {
+                data.req = value.dataValues;
+                UserRepository.findByEmailOrLogin(data.target).then((target) => {
+                    if (target != null) {
+                        data.target = target.dataValues;
+                        socket.broadcast.emit('find', data);
+                    }
+                });
+
+            }
+        });
+    });
+
+    socket.on('readyToFight', function (data) {
+        battleLogs.addBattle(data.target.sessionId + data.req.sessionId, data.target, data.req);
+        io.emit('toFight', battleLogs.getBattle(data.target.sessionId + data.req.sessionId));
+    });
+
+    socket.on('readyToStartBattle', function (data) {
+        battleLogs.getBattle(data.id);
+        if (battleLogs.getBattle(data.id).userFirst.sessionId === data.iam) {
+            battleLogs.getBattle(data.id).userFirst.ready = true;
+            console.log('user f');
+            battleLogs.addBattleField(data.id, data.battleField);
+            console.log(battleLogs.getBattle(data.id).battleField);
+        }
+        if (battleLogs.getBattle(data.id).userSecond.sessionId === data.iam) {
+            battleLogs.getBattle(data.id).userSecond.ready = true;
+            console.log('user s');
+            battleLogs.addBattleField(data.id, data.battleField);
+            console.log(battleLogs.getBattle(data.id).battleField);
+        }
+        if (battleLogs.getBattle(data.id).userSecond.ready && battleLogs.getBattle(data.id).userFirst.ready) {
+            console.log('fight');
+            io.emit('startBattle', battleLogs.getBattle(data.id));
+        }
+    });
+    socket.on('nextStep', function (data) {
+        let temp = null;
+        if(data.iam === battleLogs.getBattle(data.id).userFirst.sessionId){
+            temp = battleLogs.getBattle(data.id).userSecond.sessionId;
+        }else {
+            temp =   battleLogs.getBattle(data.id).userFirst.sessionId;
+        }
+        battleLogs.nextBattleField(data.id,data.battleField);
+        io.emit('accesStep', {
+            id: battleLogs.getBattle(data.id).id,
+            acces: temp,
+            battleField : battleLogs.getBattle(data.id).battleField
+        });
+    });
+    socket.on('disconnect', function () {
+        console.log("user disconnect");
+    });
+    socket.on('win',function (data) {
+        io.emit('lose',data);
+    });
+});

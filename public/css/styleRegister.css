@@ -1,0 +1,32 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+html{
+    height:100%;
+}
+body{
+    height:100%;
+    background-size:600px ;
+    padding: 0px;
+    margin: 0px;
+    background-color: #E1E2E3;
+}
+.my-dict:after {
+    content: " ";
+    display: block;
+    background-color: #E25B57;
+    height: 3px;
+    max-width: 300px;
+    margin: 20px auto;
+    border-radius: 20%;
+    margin-bottom: 0px;
+}
+/*reg*/
+.input-register{
+    margin-top:20px;
+}
+.input-register-but{
+    height: calc(2.875rem + 2px);
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: .3rem;
+}

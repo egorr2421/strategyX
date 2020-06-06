@@ -1,0 +1,58 @@
+body{
+	background-color: whitesmoke;
+	margin: 0;
+	padding: 0;
+}
+.main{
+	width: 850px;
+	margin: 20px auto 80px auto;
+    height: 700px;
+}
+canvas{
+    background-image:url("image/battle.jpg") ;
+    background-size: 100%;
+	float: left;
+	height: 700px;
+	width:  700px;
+	display: block;
+	border: 2px solid black;
+	border-radius: 1%;
+	transition: 1s;
+}
+.unit{
+    float: left;
+	width: 60px;
+	display: block;
+	margin-top: 10px;
+}
+.resulte{
+    margin-top: 20px;
+    width: 130px;
+    float: left;
+    border-top:1px solid black;
+    text-align: center;
+}
+.count{
+    float: left;
+    width: 60px;
+    display: block;
+    margin-top: 10px;
+    height: 60px;
+    text-align: center;
+    padding-top: 10px;
+}
+.unit-p{
+    margin-right: 20px;
+    float: right;
+    display: inline;
+}
+.button-start{
+    text-align: center;
+}
+.button-start button{
+    margin-top: 20px;
+    font-size: 30px;
+}
+.texture{
+    display: none;
+}

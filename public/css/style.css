@@ -1,0 +1,53 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+html{
+    height:100%;
+}
+body{
+    height:100%;
+    background-color: #E1E2E3;
+    background-size:600px ;
+    padding: 0px;
+    margin: 0px;
+    /*font-family: 'Open Sans' , 'sans-serif';*/
+}
+.navbar{
+    z-index: 100;
+}
+.my-dict:after {
+    content: " ";
+    display: block;
+    background-color: #E25B57;
+    height: 3px;
+    max-width: 300px;
+    margin: 20px auto;
+    border-radius: 20%;
+    margin-bottom: 0px;
+}
+/*main*/
+.main{
+    background-color: #C0102E;
+    height:200px;
+}
+.logo{
+    background-image: url("image/logo.png");
+    background-size: auto 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height:200px;
+
+}
+.around{
+    z-index: 99;
+    /*float: right;*/
+    border: 100px solid #C0102E;
+    border-right-color: #C0102E;
+}
+.row{
+    padding-right:0;
+    padding-left:0;
+}
+.main-table{
+    padding: 0px;
+    border: 1px solid black;
+    border-top: 0px solid black;
+}

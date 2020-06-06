@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><%= title %></title>
+    <link rel="icon" type="image/png" href="barbute.png"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styleRegister.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <a class="navbar-brand" href="#"><img src="barbute.svg" width="30"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link " href="/register">Регистрация</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link " href="/login">Вход</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+<form action="/register" method="post">
+    <div class="container-fluid about text-center">
+        <div class="row" style="margin-top: 30px;">
+            <div class="col">
+                <h2>Register</h2>
+                <p class="my-dict">You can register your account</p>
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="row justify-content-center input-register">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-lg"
+                                  style="width: 120px;text-align: center;display: block; background-color: #212529;color: white;">login</span>
+                        </div>
+                        <input name="login" type="text" class="form-control" aria-label="Large"
+                               aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center ">
+                <div class="col-12 col-md-8 col-lg-6 ">
+                    <div class="input-group input-group-lg input-register">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-lg"
+                                  style="width: 120px;text-align: center;display: block; background-color: #212529;color: white;">Password</span>
+                        </div>
+                        <input name="pass" type="Password" class="form-control" aria-label="Large"
+                               aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center ">
+                <div class="col-12 col-md-8 col-lg-6 ">
+                    <div class="input-group input-group-lg input-register">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-lg"
+                                  style="width: 120px;text-align: center;display: block; background-color: #212529;color: white;">Email</span>
+                        </div>
+                        <input name="email" type="email" class="form-control" aria-label="Large"
+                               aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center ">
+                <div class="col-12 col-md-8 col-lg-6 ">
+                    <div class="input-group input-group-lg input-register">
+                        <div class="custom-file ">
+                            <input name="file" type="file" class="custom-file-input " id="customFile">
+                            <label class="custom-file-label " for="customFile">Choose file</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center input-register">
+                <div class="col-12 col-md-8 col-lg-6 ">
+                    <div class="row justify-content-end" style="margin-bottom: 30px;">
+                        <div class="col-4">
+                            <div class="input-group-lg">
+                                <button type="submit" class="btn btn-dark input-register-but"
+                                        style="background-color: #212529;color: white;">Register
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

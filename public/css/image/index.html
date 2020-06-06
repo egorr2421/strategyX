@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>hello</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/styleFight.css">
+</head>
+<body>
+<div class="main">
+
+    <canvas id="canvas" width="700" height="700"></canvas>
+    <div id="units">
+        <div class="unit-p"><img class="unit" id="dwarf" src="dwarf-face.svg">
+            <h2 class="count" id="count-dwarf">0</h2></div>
+        <div class="unit-p"><img class="unit" id="hourse" src="visored-helm.svg">
+            <h2 class="count" id="count-hourse">0</h2></div>
+        <div class="unit-p"><img class="unit" id="pocket" src="pocket-bow.svg">
+            <h2 class="count" id="count-pocket">0</h2></div>
+        <div class="unit-p"><img class="unit" id="energy" src="energy-sword.svg">
+            <h2 class="count" id="count-energy">0</h2></div>
+        <div class="unit-p"><img class="unit" id="king" src="chess-king.svg">
+            <h2 class="count" id="count-king">0</h2></div>
+
+        <div class="resulte">
+            <h1 id="resulte">100</h1>
+        </div>
+    </div>
+    <div class="button-start">
+        <button class="btn btn-dark" id="button-start"> start</button>
+    </div>
+</div>
+<div class="texture">
+<img class="unit" id="dwarf-t" src="css/image/unit/dwarf-face.svg">
+<img class="unit" id="hourse-t" src="css/image/unit/visored-helm.svg">
+<img class="unit" id="pocket-t" src="css/image/unit/pocket-bow.svg">
+<img class="unit" id="energy-t" src="css/image/unit/energy-sword.svg">
+<img class="unit" id="king-t" src="css/image/unit/chess-king.svg">
+</div>
+    <script src="js/unit.js"></script>
+<script src="js/script.js"></script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+</html>
